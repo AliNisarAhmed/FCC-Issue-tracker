@@ -6,7 +6,7 @@ const apiRouter = require('./routes/api');
 const Project = require('./models/project');
 const Issue = require('./models/issue');
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(bodyParser.json());
@@ -19,6 +19,13 @@ app.use(express.static('dist'));
 app.get('/projects', async (req, res) => {
   let projects = await Project.find({}).exec();
   res.json(projects);
+});
+
+app.post('/projects/new', async (req, res) => {
+  let project = await Project.create({
+    projectname: req.body.projectname
+  })
+  res.json(project);
 })
 
 connect('mongodb://localhost:27017/issues')

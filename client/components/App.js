@@ -1,46 +1,39 @@
 import React, { Component } from 'react'
 import { Router, Link } from '@reach/router';
 
-import Issues from './Issues';
+import ProjectList from './ProjectList';
 import NewIssue from './NewIssue';
+import ProjectDetails from './ProjectDetails';
+import NewProject from './NewProject';
 
 export default class App extends Component {
   
   state = {
-    projects: null,
+    projects: [],
   }
 
   componentDidMount() {
-    console.log('here');
-    fetch('/projects')
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        this.setState({projects: data});
-      })
+    this.getProjects();
   }
+
+  getProjects = async () => {
+    let res = await fetch('/projects');
+    let projects = await res.json();
+    console.log(projects);
+    this.setState({projects});
+  }
+
   
   render() {
     return (
       <div>
+        <h1><Link to="/" >Issue Tracker</Link></h1>
         <Router>
-          <Issues path="/api/issues/:project/issues" />
+          <ProjectList path="/" projects={this.state.projects} />
+          <ProjectDetails path="/api/issues/:project/details" />
           <NewIssue path="/api/issues/:project/new" />
+          <NewProject path="/projects/new" />
         </Router>
-        <h1>Projects: </h1>
-        <ul>
-          {
-            this.state.projects &&
-            this.state.projects.map(project => (
-              <li>
-                <p>Project Name: <span>{project.projectname}</span></p>
-                <p>Issues: {project.issues.length}</p>
-                  <Link to={`/api/issues/${project.projectname}/issues`}>See Issues</Link>
-                  <Link to={`api/issues/${project.projectname}/new`}>Create new Issue</Link>
-              </li>
-            ))
-          }
-        </ul>
       </div>
     )
   }

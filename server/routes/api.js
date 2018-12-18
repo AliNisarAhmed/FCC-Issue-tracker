@@ -73,6 +73,7 @@ router.delete('/:project', async (req, res) => {
     let issue = await Issue.findByIdAndDelete(id).exec();
     console.log(issue);
     if (issue) {
+      await Project.findByIdAndUpdate(issue.project, {$pull: {issues: issue._id}})
       res.json({success: `deleted ${id}`});
     } else {
       res.json({failed: `could not delete ${id}`});
