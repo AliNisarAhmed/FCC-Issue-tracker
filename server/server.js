@@ -2,12 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const connect = require('./connect');
 const apiRouter = require('./routes/api');
+const helmet = require('helmet');
 
 const Project = require('./models/project');
-const Issue = require('./models/issue');
 
 const PORT = process.env.PORT || 3000;
+
 const app = express();
+
+app.use(helmet());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,7 +29,9 @@ app.post('/projects/new', async (req, res) => {
     projectname: req.body.projectname
   })
   res.json(project);
-})
+});
+
+module.exports = app;
 
 connect('mongodb://localhost:27017/issues')
   .then(() => {

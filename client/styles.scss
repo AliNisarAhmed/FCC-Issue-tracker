@@ -1,0 +1,28 @@
+// $color-background: #eaeaea;
+// $color-dark: #252a34;
+// $color-medium: #ff2e63;
+// $color-light: #08d9d6;
+
+
+$color-background: #eeeeee;
+$color-dark: #222831;
+$color-medium: #393e46;
+$color-light: #00adb5;
+
+// $color-background: #d7eaea;
+// $color-dark: #69779b;
+// $color-medium: #9692af;
+// $color-light: #acdbdf;
+
+body {
+  background-color: $color-background;
+  margin: 0;
+  padding: 0;
+}
+
+@import './styles/app';
+@import './styles/btn';
+@import './styles/projectList';
+@import './styles/project';
+@import './styles/issueList';
+@import './styles/form';

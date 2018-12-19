@@ -25,11 +25,11 @@ export default class NewProject extends Component {
 
   render() {
     return (
-      <div>
+      <div className="formContainer">
         <form onSubmit={this.handleSubmit}>
           <label>Name of the Project: </label>
           <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange} name="name" required/>
-          <input type="submit" value="Submit"/>
+          <input type="submit" value="Submit" className="btn"/>
         </form>
       </div>
     )

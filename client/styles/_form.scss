@@ -1,0 +1,33 @@
+.formContainer {
+  width: 85%;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border: 2px solid transparent;
+  padding: 10px 20px;
+  margin: 20px 0;
+  font-size: 16px;
+  border-radius: 8px;
+  outline: none;
+
+  &:focus, &:active {
+    border: 2px solid $color-dark;
+  }
+}
+
+input[type="submit"] {
+  margin: 20px auto 0 auto;
+}
+
+label {
+  color: $color-dark;
+  font-weight: bold;
+  font-size: 24px;
+  width: 150px;
+  display: inline-block;
+}

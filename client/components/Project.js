@@ -3,14 +3,14 @@ import { Link } from '@reach/router';
 
 export default function Project({ project }) {
   return (
-    <li>
-      <h2>Project Name: {project.projectname}</h2>
-      <p>Issues: {project.issues.length}</p>
+    <div id="project">
+      <h2 className="heading-secondary"><span>{project.projectname}</span></h2>
+      <p>Issues: <span>{project.issues.length}</span></p>
       {
         project.issues.length === 0 ? null :   
-        <Link to={`/api/issues/${project.projectname}/details`}> Details of all issues </Link>
+        <Link className="btn" to={`/api/issues/${project.projectname}/details`}> Details</Link>
       }
-      <Link to={`api/issues/${project.projectname}/new`} > Open a new Issue </Link>
-    </li>
+      <Link className="btn newIssue" to={`api/issues/${project.projectname}/new`} >Open a new Issue</Link>
+    </div>
   )
 }

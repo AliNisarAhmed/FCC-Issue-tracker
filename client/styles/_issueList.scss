@@ -1,0 +1,66 @@
+#issueList {
+  padding-top: 30px; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+  text-align: center;
+
+  color: $color-dark;
+}
+
+.heading-primary {
+  color: $color-dark;
+
+  span {
+    text-transform: capitalize;
+  }
+}
+
+#issue {
+  border: 1px solid $color-dark;
+  border-radius: 5px;
+  background: $color-light;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  
+  p {
+    margin: 10px 0;
+  }
+
+  span {
+    font-size: 130%;
+    font-weight: bold;
+  }
+}
+
+.btn-link {
+  border: none;
+  width: 100%;
+  max-width: 200px;
+}
+
+.description {
+  padding: 10px;
+  width: 80%;
+  min-height: 50px;
+  border: 1px solid darken($color: $color-dark, $amount: 10%);
+  margin: 0;
+  color: darken($color: $color-dark, $amount: 10%);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading-tertiary {
+  margin: 15px 0;
+}
+
+.update {
+  margin-top: auto;
+}

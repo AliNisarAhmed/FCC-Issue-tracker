@@ -36,11 +36,11 @@ export default class NewIssue extends Component {
 
   render() {
     return (
-      <div>
+      <div className="formContainer">
         <form onSubmit={this.onFormSubmit}>
-          <label>Title </label>
+          <label>Title: </label>
           <input type="text" placeholder="*Title" value={this.state.title} name="issue_title" onChange={this.onChangeHandler} required/><br />
-          <label>Text </label>
+          <label>Text: </label>
           <input type="text" placeholder="*Text" value={this.state.issue_text} name="issue_text" onChange={this.onChangeHandler}/><br />
           <label>Created By: </label>
           <input type="text" placeholder="*Created By" value={this.state.created_by} name="created_by" onChange={this.onChangeHandler}/><br />
@@ -48,7 +48,7 @@ export default class NewIssue extends Component {
           <input type="text" placeholder="(opt)Assigned To" value={this.state.assigned_to} name="assigned_to" onChange={this.onChangeHandler}/><br />
           <label>Status: </label>
           <input type="text" placeholder="(opt)Status" value={this.state.status_text} name="status_text" onChange={this.onChangeHandler}/><br />
-          <input type="submit" value="Submit"/>
+          <input className="btn" type="submit" value="Submit"/>
         </form>
       </div>
     )
